@@ -372,3 +372,51 @@ Started project
 .. End
 
 .. End
+
+
+Step-by-step usage guide
+========================
+
+1. **Install PySpice and a simulator.** Install this checkout in a Python
+   environment with::
+
+       python -m pip install .
+
+   Then configure either the Ngspice shared library or the supported Xyce
+   executable. Follow the installation guide at
+   https://pyspice.fabrice-salvaire.fr for platform-specific simulator setup.
+2. **Run an included circuit.** From the repository root, run::
+
+       python examples/resistor/voltage-divider.py
+
+   The examples/ index links
+   working resistor, diode, transistor, filter, transformer, amplifier, and
+   simulator-interface cases.
+3. **Build a circuit in Python.** Create a Circuit/netlist, add components,
+   models, subcircuits, and sources, then select the simulator backend.
+   Use the basic-usages examples for units, raw SPICE import, and netlist
+   manipulation.
+4. **Select an analysis.** Run an operating point, transient, AC, DC sweep,
+   noise, or pole-zero analysis as appropriate. Reuse the analyses examples
+   to choose simulator options and measurement expressions.
+5. **Inspect and export results.** Plot node voltages/currents or frequency
+   response, save the raw data, and check units and simulator logs. Keep the
+   netlist and simulator version with the plotted result.
+6. **Use external models.** Add model libraries or subcircuits for the
+   component being studied, verify pin order and units, and validate the
+   model with a small known circuit before combining it into a larger one.
+
+Functionality map
+-----------------
+
+* Python circuit/netlist creation and parsing, component units, subcircuits,
+  external SPICE libraries, and raw SPICE file support.
+* Ngspice and Xyce integration, operating-point/transient/AC/DC/noise/pole-zero
+  analyses, raw-result access, and plotting.
+* Examples are grouped in examples/basic-usages/, examples/analyses/,
+  examples/resistor/, examples/diode/, examples/transistor/, examples/filter/,
+  examples/transformer/, and examples/operational-amplifier/.
+* The complete setup and API references are at
+  https://pyspice.fabrice-salvaire.fr; simulator installation is separate
+  from installing the Python package.
+
